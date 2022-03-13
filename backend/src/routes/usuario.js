@@ -1,16 +1,12 @@
-const {Router}= require ('express')
-const router= Router()
+const { Router } = require("express");
+const router = Router();
 
+router
+  .route("/")
 
-router.route('/')
+  .get()
+  .post();
 
-.get()
-.post()
+router.route("/:id").get().delete().put();
 
-
-router.route('/:id')
-.get()
-.delete()
-.put()
-
-module.exports=router;
+module.exports = router;

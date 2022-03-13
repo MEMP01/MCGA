@@ -1,14 +1,14 @@
 //archivo de arranque del servidor
 
-require ('dotenv').config()
-require ('./database')
-const app = require ('./app')
+require("dotenv").config();
+require("./database");
+const app = require("./app");
 
 //esta logica es para ejecutar el servidor
 
-async function main (){
-    await app.listen(app.get('port'))
-    console.log('el servidor se esta ejecutando en el puerto: ',app.get('port'));
+async function main() {
+  await app.listen(app.get("port"));
+  console.log("el servidor se esta ejecutando en el puerto: ", app.get("port"));
 }
 
 main();
