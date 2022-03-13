@@ -1,5 +1,7 @@
 //archivo de arranque del servidor
 
+require ('dotenv').config()
+require ('./database')
 const app = require ('./app')
 
 //esta logica es para ejecutar el servidor
