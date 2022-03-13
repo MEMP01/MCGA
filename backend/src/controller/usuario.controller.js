@@ -4,7 +4,7 @@ const Usuario = require("../models/Usuario");
 
 //get
 
-usuarioCtrl.getUsuario = async (req, res) => {
+usuarioCtrl.getListaUsuario = async (req, res) => {
   try {
     const usuarios = await Usuario.find();
     res.json(usuarios);
@@ -77,3 +77,5 @@ usuarioCtrl.updateUsuario = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
+module.exports = usuarioCtrl;
