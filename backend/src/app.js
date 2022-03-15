@@ -9,7 +9,7 @@ const morgan = require("morgan");
 
 //se guarda en la variable port en la constante app,
 // se almacenara el puerto que que se este escuchando O se utilizara por defecto el puerto 4000
-app.set("port", process.env.PORT || 3500);
+app.set("port", process.env.PORT || 5000);
 
 //middlewares
 app.use(cors());
