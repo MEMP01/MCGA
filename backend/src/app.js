@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
 });
 
 //rutas para nuestra api de usuarios
-app.use(require("./routes/auth.usu"));
-app.use("/api/usuario", require("./routes/usuario"));
+app.use(require("./routes/auth.usu.js"));
+app.use("/api/usuario", require("./routes/usuario.js"));
 
 //se exporta para poder usar el archivo app en otra parte del projecto
 module.exports = app;
