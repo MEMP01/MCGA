@@ -3,6 +3,7 @@ const ModeloDeUsuarioDelSistema = require("../models/UsuarioSistema");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+//autenticar usuario
 authMethods.singin = async (req, res) => {
   const { nombreDeUsuario, contraseña } = req.body;
   const User = await ModeloDeUsuarioDelSistema.findOne({
@@ -15,12 +16,12 @@ authMethods.singin = async (req, res) => {
     });
   }
   const autenticate = User.confirmarcontraseña(contraseña);
-  if (!autenticante)
+  if (!autenticate)
     ({
       auth: false,
       massage: "Nombre de usuario o contraseña incorrectos",
     });
-  const token = jwt.sign(user._id.toString(), process.env.SECURE_KEY);
+  const token = jwt.sign(User._id.toString(), process.env.SECURE_KEY);
   if (!token) {
     return res.json({
       auth: false,
@@ -32,7 +33,7 @@ authMethods.singin = async (req, res) => {
     token: token,
   });
 };
-
+//metodo para registrar usuario en el sistema
 authMethods.singup = async (req, res) => {
   const { nombreDeUsuario, contraseña } = req.body;
   const newUser = new ModeloDeUsuarioDelSistema({
@@ -48,6 +49,7 @@ authMethods.singup = async (req, res) => {
   });
 };
 
+//autenticar token
 authMethods.confirmToken = async (req, res) => {
   const { token } = req.body;
   if (token === "") {
@@ -68,4 +70,6 @@ authMethods.confirmToken = async (req, res) => {
     token: token,
   });
 };
+
+//exportar modulo
 module.exports = authMethods;
