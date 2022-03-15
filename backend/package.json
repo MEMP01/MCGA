@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon node ./src/index.js",
-    "start": "node ./src/app.js"
+    "start": "node ./src/app.js",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "Matias Ezequiel MILLAN",
