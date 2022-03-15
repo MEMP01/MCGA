@@ -18,12 +18,12 @@ const UsuarioSistemaSchema = new Schema({
   },
 });
 
-UsuarioSistemaSchema.methods.encriptarcontraseña = async (constraseña) => {
+UsuarioSistemaSchema.encriptarcontraseña = async (constraseña) => {
   const salt = await bcrypt.getSalt(10);
   return bcrypt.hash(constraseña, salt);
 };
 
-UsuarioSistemaSchema.methods.confirmarcontraseña = function (constraseña) {
-  return bcrypt.compare(constraseña, this.constraseña);
+UsuarioSistemaSchema.confirmarcontraseña = function (constraseña) {
+  return bcrypt.compare(constraseña, this.contra);
 };
 module.exports = model("User", UsuarioSistemaSchema);
